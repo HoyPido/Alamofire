@@ -244,7 +244,8 @@ public struct URLEncoding: ParameterEncoding {
     ///
     /// - returns: The percent-escaped string.
     public func escape(_ string: String) -> String {
-        let generalDelimitersToEncode = ":#[]@" // does not include "?" or "/" due to RFC 3986 - Section 3.4
+        // let generalDelimitersToEncode = ":#[]@" // does not include "?" or "/" due to RFC 3986 - Section 3.4
+        let generalDelimitersToEncode = ":#[]@/" // work around for mobile connect implementation
         let subDelimitersToEncode = "!$&'()*+,;="
 
         var allowedCharacterSet = CharacterSet.urlQueryAllowed
